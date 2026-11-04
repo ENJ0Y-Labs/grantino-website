@@ -1,51 +1,28 @@
 import { useState } from 'react';
+import img1 from './assert/img1.jpg';
+import img2 from './assert/img2.jpg';
+import img3 from './assert/img3.jpg';
+import img4 from './assert/img4.jpg';
+import img5 from './assert/img5.jpg';
+import img6 from './assert/img6.jpg';
+import img7 from './assert/img7.jpg';
+import img8 from './assert/img8.jpg';
+import img9 from './assert/img9.jpg';
+import img10 from './assert/img10.jpg';
 
 const WHATSAPP_NUMBER = '2348064233230';
 const PHONE_NUMBERS = ['08064233230', '08034158711'];
 
 const products = [
-  {
-    name: 'Table eggs',
-    category: 'Eggs',
-    description: 'Table eggs packed in standard 30-egg crates. Available by the crate and for bulk enquiries.',
-    symbol: '◎',
-  },
-  {
-    name: 'Live broilers',
-    category: 'Broiler chickens',
-    description: 'Live broiler chickens for households, retailers, food businesses and bulk buyers.',
-    symbol: '♧',
-  },
-  {
-    name: 'Dressed broilers',
-    category: 'Processed poultry',
-    description: 'Dressed broilers for customers who prefer poultry prepared before collection.',
-    symbol: '✳',
-  },
-  {
-    name: 'Mature layers',
-    category: 'Poultry livestock',
-    description: 'Mature laying birds available for buyers who enquire about current batches.',
-    symbol: '◉',
-  },
-  {
-    name: 'Point-of-lay pullets',
-    category: 'Young birds',
-    description: 'Point-of-lay pullets for poultry farmers planning or expanding a laying flock.',
-    symbol: '⌁',
-  },
-  {
-    name: 'Day-old chicks',
-    category: 'Chicks',
-    description: 'Day-old chicks for poultry farmers. Ask about availability before making plans.',
-    symbol: '✧',
-  },
-  {
-    name: 'Poultry manure',
-    category: 'Farm input',
-    description: 'Poultry manure for agricultural and soil-improvement use.',
-    symbol: '❋',
-  },
+  { name: 'Table eggs', category: 'Eggs', description: 'Table eggs packed in standard 30-egg crates. Available by the crate and for bulk enquiries.', image: img2 },
+  { name: 'Live broilers', category: 'Broiler chickens', description: 'Live broiler chickens for households, retailers, food businesses and bulk buyers.', image: img3 },
+  { name: 'Dressed broilers', category: 'Processed poultry', description: 'Dressed broilers for customers who prefer poultry prepared before collection.', image: img4 },
+  { name: 'Mature layers', category: 'Poultry livestock', description: 'Mature laying birds available for buyers who enquire about current batches.', image: img5 },
+  { name: 'Point-of-lay pullets', category: 'Young birds', description: 'Point-of-lay pullets for poultry farmers planning or expanding a laying flock.', image: img6 },
+  { name: 'Day-old chicks', category: 'Chicks', description: 'Day-old chicks for poultry farmers. Ask about availability before making plans.', image: img7 },
+  { name: 'Poultry manure', category: 'Farm input', description: 'Poultry manure for agricultural and soil-improvement use.', image: img8 },
+  { name: 'Other poultry products', category: 'Poultry products', description: 'Ask our team about other poultry products currently available from the farm.', image: img9 },
+  { name: 'Poultry farm supplies', category: 'Farm supplies', description: 'Contact us to enquire about poultry farm supplies and current availability.', image: img10 },
 ];
 
 const customerTypes = [
@@ -149,15 +126,12 @@ export default function App() {
               </div>
             </div>
 
-            <div className="hero-art" aria-label="Illustration representing poultry farming" role="img">
-              <div className="art-sun" />
-              <div className="art-hill art-hill-back" />
-              <div className="art-hill art-hill-front" />
+            <div className="hero-art">
+              <img className="hero-image" src={img1} alt="Poultry farming at Grantino Farms" />
               <div className="art-label">
                 <span className="art-label-icon" aria-hidden="true">✳</span>
                 <span><strong>From farm to customer</strong><small>Products for everyday needs</small></span>
               </div>
-              <div className="art-stamp"><span>G</span><small>GRANTINO<br />FARMS</small></div>
             </div>
           </div>
           <div className="hero-bottom-line" />
@@ -203,8 +177,8 @@ export default function App() {
             <div className="product-grid">
               {products.map((product, index) => (
                 <article className="product-card" key={product.name}>
-                  <div className={'product-art product-art-' + ((index % 4) + 1)} aria-hidden="true">
-                    <span>{product.symbol}</span>
+                  <div className={'product-art product-art-' + ((index % 4) + 1)}>
+                    <img src={product.image} alt={product.name} loading="lazy" />
                     <small>{String(index + 1).padStart(2, '0')}</small>
                   </div>
                   <div className="product-card-copy">
